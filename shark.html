@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title key="title">Speech-To-Speech voice Translator</title>
+		<meta name="description" content="A great app to convert speech to speech online and free">
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NJHLXZ6TRW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NJHLXZ6TRW');
+</script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+		<link rel="stylesheet" href="style.css">
+		
+		
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<div class="rows">
+				
+				<div class="col-md-8 col-xl-6 chat">
+					<button class="fa fa-microphone" id="speech">S t a r t</button>
+																
+						<div class="card-body msg_card_body scrollm speechs">
+						
+										
+						
+						</div>
+						
+					
+				</div>
+			</div>
+			<div class="mt-3 rows">
+				Select Target:<select class="mr-3 mb-3" id="sesler">
+					
+				  </select>
+				 
+				  <div>
+				Auto Speak:<label class="switch">
+					<input id="autov" type="checkbox">
+					<span class="slider"></span>
+				</label>
+			</div>
+			
+			</div>
+			<div class="mt-3 rows">
+				<button class="fa fa-pause" id="pause"> P a u s e</button>
+				<div>
+					<button class="fa fa-bullhorn ml-3 bg-danger" onclick="sstop()" id="stopp"> S t o p</button>
+				</div>
+			</div>
+			
+			<div class="rows">
+				
+				<div class="col-md-8 col-xl-6 chat">
+				
+					<div class="card">
+						
+						<div class="card-body msg_card_body scrollm1" id="textss">
+							
+													
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- -->
+		
+		  <div class="mt-3" style="height:1rem ;">
+
+		  </div>
+		
+	</body>
+</html>
+
+<style>
+	#faq {
+  max-width: 700px;
+  margin: auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+section.faq {
+  padding-top: 2em;
+  padding-bottom: 3em;
+}
+
+#faq ul {
+  text-align: left;
+}
+.transition, p, ul li i:before, ul li i:after {
+  transition: all 0.3s;
+}
+
+#faq .no-select, #faq h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+#faq h1 {
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+  margin-top: 1rem;
+}
+
+#faq h2 {
+  color: #ffffff;
+  font-family: 'hm_light', sans-serif;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: left;
+  padding: 15px 15px 0;
+  text-transform: none;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#faq p {
+  color: rgb(255, 255, 255);
+  text-align: left;
+  font-family: 'hm_light', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+  max-height: 250px;
+  will-change: max-height;
+  contain: layout;
+  display: inline-block;
+  opacity: 1;
+  transform: translate(0, 0);
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 0 50px 0 15px;
+  transition: .3s opacity, .6s max-height;
+  hyphens: auto;
+  z-index: 2;
+}
+
+#faq ul {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
+}
+#faq ul li {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  /*padding-bottom: 4px;*/
+  /*padding-top: 18px;*/
+  background: #0e99c3;
+  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
+  -webkit-tap-highlight-color: transparent;
+}
+#faq ul li + li {
+  margin-top: 15px;
+}
+#faq ul li:last-of-type {
+  padding-bottom: 0;
+}
+#faq ul li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 28px;
+  right: 15px;
+}
+#faq ul li i:before, ul li i:after {
+  content: "";
+  position: absolute;
+  background-color: #ffffff;
+  width: 3px;
+  height: 9px;
+}
+#faq ul li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+#faq ul li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+#faq ul li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  touch-action: manipulation;
+  
+}
+#faq ul li input[type=checkbox]:checked ~ h2 {
+  color: rgb(255, 255, 255);
+}
+#faq ul li input[type=checkbox]:checked ~ p {
+  /*margin-top: 0;*/
+  max-height: 0;
+  transition: .3s;
+  opacity: 0;
+  /*transform: translate(0, 50%);*/
+}
+#faq ul li input[type=checkbox]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+#faq ul li input[type=checkbox]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+a,
+a:visited,
+a:focus,
+a:active,
+a:link {
+  text-decoration: none;
+  outline: 0;
+}
+
+a {
+  color: currentColor;
+  transition: .2s ease-in-out;
+}
+
+h1, h2, h3, h4 {
+  margin: .3em 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}
+	body,html{
+            color: white;
+			height: 100%;
+			margin: 0;
+			background: #7F7FD5;
+	     
+		}
+		select{
+			height: 34px;
+			background-color: cornflowerblue;
+
+
+		}
+		i{
+			margin-left: 2px;
+		}
+		option{
+			color: white;
+		}
+		#textss .msg_cotainer{
+			cursor: pointer;
+		}
+		.rows{
+			justify-content: center!important;
+			display: flex;
+    		-ms-flex-wrap: wrap;
+   			flex-wrap: wrap;
+   			 margin-right: -15px;
+    		margin-left: -15px;
+		}
+		.m4{
+			margin-bottom: 1.5rem!important;
+			justify-content: flex-start!important;
+			display: flex!important;
+		}
+
+		.scrollm{
+
+			max-height: 400px;
+			overflow-y: auto;
+		  
+		}
+		.scrollm1{
+			max-height: 400px;
+			overflow-y: auto;
+		}
+		
+		.chat{
+			margin-top: 15px;
+			margin-bottom: auto;
+			text-align: center;
+			
+		}
+		.card{
+			height: 500px;
+			border-radius: 15px !important;
+			background-color:rgba(255, 255, 255, 0.2);
+			
+		}
+		.contacts_body{
+			padding:  0.75rem 0 !important;
+			overflow-y: auto;
+			white-space: nowrap;
+		}
+		.msg_card_body{
+			overflow-y: auto;
+		}
+		.card-header{
+			border-radius: 15px 15px 0 0 !important;
+			border-bottom: 0 !important;
+		}
+	 
+		.container{
+			align-content: center;
+		}
+	
+		.type_msg{
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color:white !important;
+			height: 60px !important;
+			overflow-y: auto;
+		}
+		::-webkit-scrollbar {
+            width: 15px;
+        }
+		::-webkit-scrollbar-track {
+            background: #91EAE4;
+            border-radius: 5px;
+        }
+     
+        
+        ::-webkit-scrollbar-thumb {
+            background: #7F7FD5;
+            border-radius: 5px;
+        }
+     
+        
+        
+		
+		
+	
+	
+	.msg_cotainer{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: 10px;
+		border-radius: 25px;
+		background-color: #26859b;
+		padding: 10px;
+		position: relative;
+	}
+	
+	button{
+		background-color: #0e99c3;
+		color: white;
+		padding: 22px 20px;
+		border: 0;
+		border-radius: 20px;
+		margin-bottom: 10px;
+		cursor: pointer;
+	}
+	
+	
+	@media(max-width: 576px){
+	.contacts_card{
+		margin-bottom: 15px !important;
+	}
+	}
+	.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d51212;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: cornflowerblue;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #19c072;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+	<script>
+	
+
+	var voiceList = document.getElementById("sesler");
+	var synth = window.speechSynthesis;
+    var voices = [];
+		PopulateVoices();
+        if(speechSynthesis !== undefined){
+            speechSynthesis.onvoiceschanged = PopulateVoices;
+        }
+	
+        function PopulateVoices(){
+            voices = synth.getVoices();
+            var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+            voiceList.innerHTML = '';
+            voices.forEach((voice)=>{
+                var listItem = document.createElement('option');
+                listItem.textContent = voice.name + " " +voice.lang;
+                listItem.setAttribute('data-lang', voice.lang);
+                listItem.setAttribute('data-name', voice.name);
+                voiceList.appendChild(listItem);
+				
+            });
+
+            voiceList.selectedIndex = selectedIndex;
+        }
+
+
+
+	const objDiv1 = document.querySelector(".scrollm1");
+	const objDiv = document.querySelector(".scrollm");
+	const pausee = document.getElementById("pause");
+	const autov = document.getElementById("autov");
+	autov.checked = false;
+	const speeches = document.querySelector(".speechs");
+	const textss = document.querySelector("#textss");
+	let button = document.querySelector('#speech');
+
+
+	window.SpeechRecognition =  window.SpeechRecognition || window.webkitSpeechRecognition;
+	const recognition = new SpeechRecognition();
+	recognition.interimResults = true;
+
+	let div = document.createElement("div");
+	div.classList.add('m4');
+	let divv = document.createElement("div");
+	divv.classList.add('msg_cotainer');
+	div.appendChild(divv);
+
+	button.addEventListener('click', ()=>{
+		if(button.innerText == "S t a r t"){
+			button.innerText ="S T O P";
+			button.classList.add("bg-danger");
+			recognition.start();
+
+		}else{
+			
+			button.classList.remove("bg-danger")
+			button.innerText="S t a r t";
+			recognition.stop();
+						
+		}
+	
+	})
+recognition.addEventListener("result", (e) => {
+ 	// speeches.appendChild(p);
+  	const text = Array.from(e.results)
+	.map((result) => result[0])
+	.map((result) => result.transcript) 
+	.join("");
+  	console.log(text);
+  	//p.innerText = text;
+  	divv.innerText = text;
+  	speeches.appendChild(div);
+	
+	objDiv.scrollTop = objDiv.scrollHeight;
+	
+  //	speeches.appendChild(p);
+  		if (e.results[0].isFinal) {
+			$.ajax({
+				url:"post.php",
+				type:"post",
+				data:{dil : voiceList.selectedOptions[0].getAttribute('data-lang').substring(0,2), textt:divv.innerText},
+				success: function(status){
+				console.log(status);
+				let translated = document.createElement("div");
+				translated.classList.add("m4");
+				let translatedd = document.createElement("div");
+				translatedd.classList.add("msg_cotainer");
+				translated.appendChild(translatedd);
+				translatedd.innerHTML=status;
+				let i = document.createElement("i");
+				i.classList.add("fa","fa-play");
+				translatedd.onclick = function () {sspeak(this.innerText)}; 
+				translatedd.appendChild(i);
+				textss.appendChild(translated);
+				objDiv1.scrollTop = objDiv1.scrollHeight;
+				if (autov.checked) {
+				sspeak(status);
+				
+				}
+													
+				},
+				
+			});
+			
+		//	p = document.createElement("p");
+			div = document.createElement('div');
+			div.classList.add('m4');
+		   	divv = document.createElement("div");
+			divv.classList.add('msg_cotainer');
+			div.appendChild(divv);
+   
+  		}
+	});
+recognition.addEventListener("end", () => {
+  		
+		if(button.innerText == "S T O P"){
+			recognition.start();
+		};
+		
+		
+	});
+
+autov.addEventListener('change', function() {
+  		if (this.checked) {
+    	
+  		} else {
+			sstop();
+  		}
+	});
+voiceList.addEventListener('change', function() {
+	if(synth.speaking){
+	sstop();
+	console.log("durduruldu.");
+		}else{
+			console.log("olumsuz");
+		}
+	});
+
+pausee.addEventListener("click",()=> {
+	if (pausee.innerText==" P a u s e") {
+		pausee.innerText=" R e s u m e";
+		pausee.classList.remove("fa-pause");
+		pausee.classList.add("fa-play");
+		ppause();
+	} else {
+		pausee.innerText=" P a u s e";
+		pausee.classList.remove("fa-play");
+		pausee.classList.add("fa-pause");
+		rresume();
+	}
+
+
+})
+window.addEventListener("beforeunload", function (e) {
+
+sstop();
+return undefined;
+});
+
+
+function sspeak(aa) {
+	var toSpeak = new SpeechSynthesisUtterance(aa);
+            var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+            voices.forEach((voice)=>{
+                if(voice.name === selectedVoiceName){
+                    toSpeak.voice = voice;
+                }
+            });
+            synth.speak(toSpeak);
+			
+
+}
+
+function sstop() {
+	if(synth.speaking){
+	synth.cancel();
+	}
+	
+	
+}
+function rresume() {
+	
+	synth.resume();
+	
+	
+}
+function ppause() {
+	if (synth.speaking) {
+	synth.pause();
+	}
+}
+	
+</script>
+
